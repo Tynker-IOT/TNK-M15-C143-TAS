@@ -44,7 +44,7 @@ def on_message(client, userdata, msg):
     print("mqtt : ", msg.payload.decode('utf-8') )
 
 # Create an MQTT client instance
-mqtt_client = mqtt.Client()
+mqtt_client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION1)
 # Set the callback function for incoming messages
 mqtt_client.on_message = on_message
 # Connect to the MQTT broker
