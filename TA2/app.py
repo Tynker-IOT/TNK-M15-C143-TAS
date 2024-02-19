@@ -34,7 +34,7 @@ def on_message(client, userdata, msg):
     print(sensorData)
     print("mqtt : ", msg.payload.decode('utf-8') )
 
-mqtt_client = mqtt.Client()
+mqtt_client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION1)
 mqtt_client.on_message = on_message
 mqtt_client.connect(mqtt_broker_ip, 1883, 60)
 mqtt_client.subscribe("/Temperature")
